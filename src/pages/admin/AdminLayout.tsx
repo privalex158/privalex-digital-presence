@@ -1,14 +1,10 @@
 import { useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { LayoutDashboard, FileText, BookOpen, MessageSquare, LogOut, Wrench } from "lucide-react";
+import { FileText, LogOut } from "lucide-react";
 import PrivaLexLogo from "@/components/PrivaLexLogo";
 
 const sidebarLinks = [
-  { label: "Dashboard", href: "/admin", icon: LayoutDashboard, end: true },
   { label: "Resources", href: "/admin/resources", icon: FileText },
-  { label: "Insights", href: "/admin/insights", icon: BookOpen },
-  { label: "Toolkits", href: "/admin/toolkits", icon: Wrench },
-  { label: "Testimonials", href: "/admin/testimonials", icon: MessageSquare },
 ];
 
 const AdminLayout = () => {

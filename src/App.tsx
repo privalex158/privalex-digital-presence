@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PublicLayout from "./components/PublicLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -16,11 +16,7 @@ import Cybersecurity from "./pages/services/Cybersecurity";
 import AIGovernance from "./pages/services/AIGovernance";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
-import Dashboard from "./pages/admin/Dashboard";
 import ResourcesManager from "./pages/admin/ResourcesManager";
-import InsightsManager from "./pages/admin/InsightsManager";
-import TestimonialsManager from "./pages/admin/TestimonialsManager";
-import ToolkitsManager from "./pages/admin/ToolkitsManager";
 import EventsNews from "./pages/EventsNews";
 import DPIAScreeningTool from "./pages/DPIAScreeningTool";
 import NotFound from "./pages/NotFound";
@@ -63,11 +59,8 @@ const App = () => (
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
+            <Route index element={<Navigate to="/admin/resources" replace />} />
             <Route path="resources" element={<ResourcesManager />} />
-            <Route path="insights" element={<InsightsManager />} />
-            <Route path="testimonials" element={<TestimonialsManager />} />
-            <Route path="toolkits" element={<ToolkitsManager />} />
           </Route>
 
           {/* Academy routes */}
