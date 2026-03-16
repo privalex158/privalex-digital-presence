@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { seedResources, categoryColors } from "@/data/seedData";
 import { Search, FileText, Download } from "lucide-react";
-import { getAdminResources, downloadResource } from "@/lib/resources";
+import { getResources, type AdminResource } from "@/lib/resources";
 
 const categories = ["All", "Data Protection", "Cybersecurity", "AI Governance", "Regulatory Updates", "Training"];
 
 const Resources = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [uploaded, setUploaded] = useState<AdminResource[]>([]);
 
-  // Seed resources (static display, no real file)
+  useEffect(() => {
+    getResources().then(setUploaded).catch(() => {});
+  }, []);
+
   const filteredSeed = seedResources.filter(r => {
     if (!r.published) return false;
     if (search && !r.title.toLowerCase().includes(search.toLowerCase()) && !r.description.toLowerCase().includes(search.toLowerCase())) return false;
@@ -20,15 +24,14 @@ const Resources = () => {
     return true;
   });
 
-  const featured = filteredSeed.filter(r => r.featured);
-  const rest = filteredSeed.filter(r => !r.featured);
-
-  // Admin-uploaded resources from localStorage
-  const adminResources = getAdminResources().filter(r => {
+  const filteredUploaded = uploaded.filter(r => {
     if (search && !r.title.toLowerCase().includes(search.toLowerCase()) && !r.description.toLowerCase().includes(search.toLowerCase())) return false;
-    if (category !== "All" && !r.tags.includes(category)) return false;
+    if (category !== "All" && !r.tags?.includes(category)) return false;
     return true;
   });
+
+  const featured = filteredSeed.filter(r => r.featured);
+  const rest = filteredSeed.filter(r => !r.featured);
 
   return (
     <div>
@@ -63,31 +66,31 @@ const Resources = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
 
-          {/* Admin-uploaded resources */}
-          {adminResources.length > 0 && (
+          {filteredUploaded.length > 0 && (
             <div className="mb-12">
               <h2 className="text-lg font-semibold text-foreground mb-6">Latest Resources</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {adminResources.map(r => (
+                {filteredUploaded.map(r => (
                   <div key={r.id} className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow">
                     <FileText className="h-6 w-6 text-teal mb-3" />
                     <h3 className="text-lg font-semibold text-foreground mb-2">{r.title}</h3>
                     {r.description && <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{r.description}</p>}
                     <div className="flex flex-wrap gap-1.5 mb-4">
-                      {r.tags.map(tag => (
+                      {r.tags?.map(tag => (
                         <span key={tag} className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors[tag] || "bg-muted text-muted-foreground"}`}>{tag}</span>
                       ))}
                     </div>
-                    <Button variant="teal" size="sm" className="w-full" onClick={() => downloadResource(r)}>
-                      <Download className="h-4 w-4 mr-1" /> Download
-                    </Button>
+                    <a href={r.file_url} target="_blank" rel="noopener noreferrer" className="w-full block">
+                      <Button variant="teal" size="sm" className="w-full">
+                        <Download className="h-4 w-4 mr-1" /> Download
+                      </Button>
+                    </a>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Featured seed resources */}
           {featured.length > 0 && (
             <div className="mb-12">
               <h2 className="text-lg font-semibold text-foreground mb-6">Featured Resources</h2>
@@ -111,7 +114,6 @@ const Resources = () => {
             </div>
           )}
 
-          {/* Rest of seed resources */}
           {rest.length > 0 && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map(r => (
@@ -131,7 +133,7 @@ const Resources = () => {
             </div>
           )}
 
-          {filteredSeed.length === 0 && adminResources.length === 0 && (
+          {filteredSeed.length === 0 && filteredUploaded.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">No resources found matching your criteria.</p>
             </div>
