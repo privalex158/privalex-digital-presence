@@ -62,8 +62,10 @@ const Toolkits = () => (
                 </div>
               ))}
             </div>
-            <Button variant="teal" size="sm">
-              <Download className="h-4 w-4 mr-1" /> Request Toolkit
+            <Button variant="teal" size="sm" asChild>
+              <Link to="/contact">
+                <Download className="h-4 w-4 mr-1" /> Request Toolkit
+              </Link>
             </Button>
           </div>
         ))}
