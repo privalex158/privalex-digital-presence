@@ -134,22 +134,21 @@ const Index = () => {
           <div className="absolute top-0 -left-20 w-[400px] h-[400px] rounded-full bg-mid-blue/15 blur-3xl" />
         </div>
 
-        <div className="container mx-auto px-4 pt-28 pb-32 relative z-10">
-          <div className="max-w-4xl">
-            <span className="inline-block bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-8 animate-fade-in border border-white/15">
+        <div className="container mx-auto px-4 pt-20 pb-24 relative z-10">
+          <div className="max-w-5xl">
+            <span className="inline-block bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 animate-fade-in border border-white/15">
               Africa's Leading Data Protection & Technology Compliance Firm
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-7 animate-fade-in-up animation-delay-100 text-balance">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in-up animation-delay-100 text-balance">
               Privacy is not a compliance checkbox.{" "}
               <span className="text-teal">It is how your organisation earns the right to operate.</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/65 max-w-3xl mb-10 leading-relaxed animate-fade-in-up animation-delay-300">
+            <p className="text-lg md:text-xl text-white/65 max-w-4xl mb-8 leading-relaxed animate-fade-in-up animation-delay-300">
               PrivaLex Advisory is Africa's leading data protection, cybersecurity, and technology
-              compliance firm. As a licensed Data Protection Compliance Organisation (DPCO)
-              accredited by the Nigeria Data Protection Commission, we support organisations across
-              Nigeria, the United Kingdom, and global markets — advising on regulatory compliance,
-              conducting statutory data protection audits, and filing the mandatory annual audit
-              returns required under the Nigeria Data Protection Act 2023.
+              compliance firm — a licensed DPCO accredited by the Nigeria Data Protection Commission.
+              We support organisations across Nigeria, the United Kingdom, and global markets with
+              regulatory compliance, statutory audits, and annual audit returns under the Nigeria
+              Data Protection Act 2023.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-500">
               <Button variant="teal" size="lg" asChild>
