@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
+const TEAL = "#006E7F";
 const CREAM = "#F8F9FC";
 const CARD_LIGHT = "#F8F9FC";
 
@@ -270,7 +271,7 @@ const TrackHeader = ({
 }) => (
   <div
     style={{
-      background: NAVY,
+      background: TEAL,
       borderRadius: "10px",
       padding: "1.5rem 2rem",
       marginBottom: "1.75rem",
@@ -318,7 +319,7 @@ const AcademyAIGRC = () => {
       {/* Header */}
       <section
         style={{
-          background: NAVY,
+          background: TEAL,
           color: "#fff",
           padding: "5rem 0 4rem",
           position: "relative",

@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
+const TEAL = "#006E7F";
 
 const programmesLinks = [
   { label: "School of Data Protection & Privacy", to: "/academy/school/data-protection" },

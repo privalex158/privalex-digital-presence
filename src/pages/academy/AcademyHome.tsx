@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
+const TEAL = "#006E7F";
 const CREAM = "#F8F9FC";
 const CARD_LIGHT = "#F8F9FC";
 
@@ -426,7 +427,7 @@ const AcademyHome = () => {
             <Link
               to="/academy/corporate-training"
               style={{
-                background: NAVY,
+                background: TEAL,
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: "0.82rem",

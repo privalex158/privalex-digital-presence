@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
+const TEAL = "#006E7F";
 const CREAM = "#F8F9FC";
 const CARD_LIGHT = "#F8F9FC";
 
@@ -42,7 +43,7 @@ const AcademyAccreditations = () => {
       {/* Header */}
       <section
         style={{
-          background: NAVY,
+          background: TEAL,
           color: "#fff",
           padding: "5rem 0 4rem",
           position: "relative",
@@ -191,7 +192,7 @@ const AcademyAccreditations = () => {
       </section>
 
       {/* Summary bar */}
-      <section style={{ background: NAVY, padding: "3rem 0" }}>
+      <section style={{ background: TEAL, padding: "3rem 0" }}>
         <div className="container mx-auto px-4">
           <div
             style={{
