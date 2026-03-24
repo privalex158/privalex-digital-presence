@@ -32,6 +32,7 @@ import AcademyAllProgrammes from "./pages/academy/AcademyAllProgrammes";
 import AcademyMasterclasses from "./pages/academy/AcademyMasterclasses";
 import AcademyCorporateTraining from "./pages/academy/AcademyCorporateTraining";
 import AcademyAccreditations from "./pages/academy/AcademyAccreditations";
+import NewsletterPopup from "./components/NewsletterPopup";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <NewsletterPopup />
       <BrowserRouter>
         <Routes>
           {/* Public routes */}

@@ -2,40 +2,9 @@ import { Link } from "react-router-dom";
 import PrivaLexLogo from "./PrivaLexLogo";
 import { Linkedin, Twitter, ArrowRight } from "lucide-react";
 
+
 const Footer = () => (
   <footer className="bg-navy text-navy-foreground">
-    {/* Newsletter CTA */}
-    <div className="border-b border-white/10">
-      <div className="container mx-auto px-4 py-16 text-center">
-        <p className="text-teal text-sm font-semibold uppercase tracking-widest mb-4">
-          Stay Informed
-        </p>
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4 text-balance">
-          Subscribe to the PrivaLex Brief
-        </h2>
-        <p className="text-white/65 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
-          The most reliable source of data protection, cybersecurity, and AI governance intelligence.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
-          <a
-            href="https://dashboard.mailerlite.com/forms/2092322"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-md bg-teal text-white font-medium hover:bg-teal/90 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-teal/20 active:scale-[0.97]"
-          >
-            Subscribe Now <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-        <p className="text-white/35 text-xs">
-          We process your details in accordance with our{" "}
-          <Link to="/privacy-policy" className="underline hover:text-white/60 transition-colors">
-            Privacy Policy
-          </Link>
-          . Unsubscribe at any time.
-        </p>
-      </div>
-    </div>
-
     {/* Footer CTA */}
     <div className="border-b border-white/10">
       <div className="container mx-auto px-4 py-20 text-center">
