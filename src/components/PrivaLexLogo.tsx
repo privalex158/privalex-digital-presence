@@ -2,7 +2,7 @@ const PrivaLexLogo = ({ className = "", variant = "default" }: { className?: str
   return (
     <div className={className}>
       <img
-        src="/Logo/10.png"
+        src="/Logo/11.png"
         alt="PrivaLex Advisory"
         style={{
           height: "40px",
