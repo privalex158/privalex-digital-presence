@@ -44,8 +44,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <NewsletterPopup />
       <BrowserRouter>
+        <NewsletterPopup />
         <Routes>
           {/* Public routes */}
           <Route element={<PublicLayout />}>

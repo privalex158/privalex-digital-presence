@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { X, ArrowRight } from "lucide-react";
 
 const NewsletterPopup = () => {
   const [visible, setVisible] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    if (pathname.startsWith("/admin")) return;
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   const dismiss = () => {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible || pathname.startsWith("/admin")) return null;
 
   return (
     <div
@@ -52,7 +55,7 @@ const NewsletterPopup = () => {
           Data protection, cybersecurity &amp; AI governance intelligence — delivered to your inbox.
         </p>
         <a
-          href="https://dashboard.mailerlite.com/forms/2092322"
+          href="https://preview.mailerlite.io/forms/2092322/179756480312903490/share"
           target="_blank"
           rel="noopener noreferrer"
           style={{
