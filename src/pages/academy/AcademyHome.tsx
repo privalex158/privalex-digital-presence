@@ -451,7 +451,9 @@ const AcademyHome = () => {
               CORPORATE TRAINING ENQUIRY
             </a>
             <a
-              href="mailto:training@privalexadvisory.com"
+              href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Sm8Hm1zvUU22BEzeGU8Gv4G5gXNLzeBIrBgUsxWYmJlUQ0ZZNzFBVVhFVDBOVjlERVNRWUFCSVpUUS4u"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: GOLD,
                 color: "#fff",
