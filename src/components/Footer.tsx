@@ -67,15 +67,26 @@ const Footer = () => (
               { label: "Data Protection & Privacy", href: "/services/data-protection" },
               { label: "Cybersecurity & Info Security", href: "/services/cybersecurity" },
               { label: "AI Governance & Tech Policy", href: "/services/ai-governance" },
-              { label: "Training & PrivaLex Academy", href: "/services/academy" },
+              { label: "Training & PrivaLex Academy", href: "https://www.privalexacademy.com", external: true },
             ].map((l) => (
               <li key={l.href}>
-                <Link
-                  to={l.href}
-                  className="text-white/55 text-sm hover:text-teal transition-colors duration-150"
-                >
-                  {l.label}
-                </Link>
+                {l.external ? (
+                  <a
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/55 text-sm hover:text-teal transition-colors duration-150"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={l.href}
+                    className="text-white/55 text-sm hover:text-teal transition-colors duration-150"
+                  >
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

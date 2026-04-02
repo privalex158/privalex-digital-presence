@@ -247,8 +247,10 @@ const AcademyAccreditations = () => {
             career or organisation.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
-            <Link
-              to="/academy/programmes"
+            <a
+              href="https://www.privalexacademy.com/programmes"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: GOLD,
                 color: "#fff",
@@ -261,7 +263,7 @@ const AcademyAccreditations = () => {
               }}
             >
               EXPLORE PROGRAMMES
-            </Link>
+            </a>
             <a
               href="mailto:training@privalexadvisory.com"
               style={{

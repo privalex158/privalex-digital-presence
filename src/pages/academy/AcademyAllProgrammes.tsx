@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
@@ -11,7 +10,7 @@ const schools = [
     number: "01",
     name: "School of Data Protection & Privacy",
     subtitle: "Africa's most complete data protection qualification pathway",
-    to: "/academy/school/data-protection",
+    href: "https://www.privalexacademy.com/school/data-protection",
     programmes: [
       { badge: "ADVANCED MASTERY — PRIVALEX FLAGSHIP", title: "Advanced Data Protection Practitioner (ADPP)" },
       { badge: "REGULATORY — NIGERIA", title: "NDPC / IIM Certified Data Protection Officer (CDPO)" },
@@ -23,7 +22,7 @@ const schools = [
     number: "02",
     name: "School of Information Security",
     subtitle: "From ISO 27001 implementation to board-level CISO leadership",
-    to: "/academy/school/information-security",
+    href: "https://www.privalexacademy.com/school/information-security",
     programmes: [
       { badge: "IMPLEMENTER", title: "ISO/IEC 27001 Lead Implementer" },
       { badge: "AUDITOR", title: "ISO/IEC 27001 Lead Auditor" },
@@ -36,7 +35,7 @@ const schools = [
     number: "03",
     name: "School of Cybersecurity",
     subtitle: "Cybersecurity management, cloud security, and crisis management",
-    to: "/academy/school/cybersecurity",
+    href: "https://www.privalexacademy.com/school/cybersecurity",
     programmes: [
       { badge: "CYBER MANAGER", title: "ISO/IEC 27032 Lead Cybersecurity Manager" },
       { badge: "CYBER AUDITOR", title: "ISO/IEC 27032 Lead Cybersecurity Auditor" },
@@ -49,7 +48,7 @@ const schools = [
     number: "04",
     name: "School of AI, GRC & Digital Transformation",
     subtitle: "AI governance, risk, compliance, and IT governance — two tracks",
-    to: "/academy/school/ai-grc",
+    href: "https://www.privalexacademy.com/school/ai-grc",
     programmes: [
       { badge: "AI GOVERNANCE TRACK", title: "ISO/IEC 42001 Lead Implementer — AI Management System" },
       { badge: "AI GOVERNANCE TRACK", title: "ISO/IEC 42001 Lead Auditor — AI Management System" },
@@ -185,8 +184,10 @@ const AcademyAllProgrammes = () => {
                         {school.subtitle}
                       </p>
                     </div>
-                    <Link
-                      to={school.to}
+                    <a
+                      href={school.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -212,7 +213,7 @@ const AcademyAllProgrammes = () => {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </Link>
+                    </a>
                   </div>
 
                   {/* Programme list */}
@@ -285,8 +286,10 @@ const AcademyAllProgrammes = () => {
             >
               REGISTER NOW
             </a>
-            <Link
-              to="/academy/corporate-training"
+            <a
+              href="https://www.privalexacademy.com/corporate-training"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 border: `2px solid ${NAVY}`,
                 color: NAVY,
@@ -299,7 +302,7 @@ const AcademyAllProgrammes = () => {
               }}
             >
               CORPORATE TRAINING
-            </Link>
+            </a>
           </div>
         </div>
       </section>

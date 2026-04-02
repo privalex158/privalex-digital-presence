@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
@@ -11,25 +10,25 @@ const schools = [
     number: "01",
     name: "School of Data Protection & Privacy",
     description: "The complete pathway from Nigerian regulatory qualification to global privacy mastery. Home to one of the only ADPP programme and the IIM CDPO credential.",
-    to: "/academy/school/data-protection",
+    href: "https://www.privalexacademy.com/school/data-protection",
   },
   {
     number: "02",
     name: "School of Information Security",
     description: "ISO 27001 implementation and auditing, risk management, incident response, and the PECB CISO leadership credential. For working security professionals ready to formalise their expertise.",
-    to: "/academy/school/information-security",
+    href: "https://www.privalexacademy.com/school/information-security",
   },
   {
     number: "03",
     name: "School of Cybersecurity",
     description: "Cybersecurity management and auditing, cloud security, CMMC, and crisis management. The credentials organisations need to satisfy local and international security requirements.",
-    to: "/academy/school/cybersecurity",
+    href: "https://www.privalexacademy.com/school/cybersecurity",
   },
   {
     number: "04",
     name: "School of AI, GRC & Digital Transformation",
     description: "AI management system credentials (ISO 42001), AI professional and manager qualifications, plus ISO 31000 risk, ISO 37301 compliance, and ISO 38500 IT governance.",
-    to: "/academy/school/ai-grc",
+    href: "https://www.privalexacademy.com/school/ai-grc",
   },
 ];
 
@@ -157,8 +156,10 @@ const AcademyHome = () => {
           </p>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link
-              to="/academy/programmes"
+            <a
+              href="https://www.privalexacademy.com/programmes"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: GOLD,
                 color: "#fff",
@@ -173,7 +174,7 @@ const AcademyHome = () => {
               className="hover:opacity-90"
             >
               EXPLORE PROGRAMMES
-            </Link>
+            </a>
             <a
               href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Sm8Hm1zvUU22BEzeGU8Gv4G5gXNLzeBIrBgUsxWYmJlUQ0ZZNzFBVVhFVDBOVjlERVNRWUFCSVpUUS4u"
               target="_blank"
@@ -236,9 +237,11 @@ const AcademyHome = () => {
 
           <div className="grid md:grid-cols-2 gap-6" style={{ marginBottom: "2.5rem" }}>
             {schools.map((school) => (
-              <Link
-                key={school.to}
-                to={school.to}
+              <a
+                key={school.href}
+                href={school.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   background: CARD_LIGHT,
                   border: "1px solid #e8e0cc",
@@ -304,13 +307,15 @@ const AcademyHome = () => {
                     <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-              </Link>
+              </a>
             ))}
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <Link
-              to="/academy/programmes"
+            <a
+              href="https://www.privalexacademy.com/programmes"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "inline-block",
                 border: `2px solid ${GOLD}`,
@@ -326,7 +331,7 @@ const AcademyHome = () => {
               className="hover:bg-[#F4A623] hover:text-white"
             >
               VIEW ALL PROGRAMMES
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -426,8 +431,10 @@ const AcademyHome = () => {
           </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
-            <Link
-              to="/academy/corporate-training"
+            <a
+              href="https://www.privalexacademy.com/corporate-training"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: TEAL,
                 color: "#fff",
@@ -442,7 +449,7 @@ const AcademyHome = () => {
               className="hover:opacity-90"
             >
               CORPORATE TRAINING ENQUIRY
-            </Link>
+            </a>
             <a
               href="mailto:training@privalexadvisory.com"
               style={{

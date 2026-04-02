@@ -559,8 +559,10 @@ const AcademyAIGRC = () => {
             >
               REGISTER NOW
             </a>
-            <Link
-              to="/academy/programmes"
+            <a
+              href="https://www.privalexacademy.com/programmes"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 border: `2px solid ${NAVY}`,
                 color: NAVY,
@@ -573,7 +575,7 @@ const AcademyAIGRC = () => {
               }}
             >
               VIEW ALL PROGRAMMES
-            </Link>
+            </a>
           </div>
         </div>
       </section>

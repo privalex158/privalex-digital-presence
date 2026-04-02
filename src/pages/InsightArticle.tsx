@@ -60,7 +60,7 @@ const InsightArticle = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <article
-            className="max-w-3xl mx-auto prose prose-lg prose-slate"
+            className="max-w-3xl mx-auto prose prose-lg prose-slate prose-headings:font-bold prose-a:text-teal prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: article.body }}
           />
         </div>

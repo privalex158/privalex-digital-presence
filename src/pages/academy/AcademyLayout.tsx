@@ -1,24 +1,26 @@
 import { useState, useRef, useEffect } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { Linkedin, Twitter } from "lucide-react";
 
 const GOLD = "#F4A623";
 const NAVY = "#2C3E6B";
 const TEAL = "#006E7F";
 
+const ACADEMY = "https://www.privalexacademy.com";
+
 const programmesLinks = [
-  { label: "School of Data Protection & Privacy", to: "/academy/school/data-protection" },
-  { label: "School of Information Security", to: "/academy/school/information-security" },
-  { label: "School of Cybersecurity", to: "/academy/school/cybersecurity" },
-  { label: "School of AI, GRC & Digital Transformation", to: "/academy/school/ai-grc" },
-  { label: "All Programmes", to: "/academy/programmes" },
+  { label: "School of Data Protection & Privacy", href: `${ACADEMY}/school/data-protection` },
+  { label: "School of Information Security", href: `${ACADEMY}/school/information-security` },
+  { label: "School of Cybersecurity", href: `${ACADEMY}/school/cybersecurity` },
+  { label: "School of AI, GRC & Digital Transformation", href: `${ACADEMY}/school/ai-grc` },
+  { label: "All Programmes", href: `${ACADEMY}/programmes` },
 ];
 
 const navLinks = [
-  { label: "HOME", to: "/academy" },
-  { label: "MASTERCLASSES", to: "/academy/masterclasses" },
-  { label: "CORPORATE TRAINING", to: "/academy/corporate-training" },
-  { label: "ACCREDITATIONS", to: "/academy/accreditations" },
+  { label: "HOME", href: ACADEMY },
+  { label: "MASTERCLASSES", href: `${ACADEMY}/masterclasses` },
+  { label: "CORPORATE TRAINING", href: `${ACADEMY}/corporate-training` },
+  { label: "ACCREDITATIONS", href: `${ACADEMY}/accreditations` },
 ];
 
 const AcademyNavbar = () => {
@@ -26,7 +28,6 @@ const AcademyNavbar = () => {
   const [programmesOpen, setProgrammesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -44,11 +45,6 @@ const AcademyNavbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    setProgrammesOpen(false);
-    setMenuOpen(false);
-  }, [location.pathname]);
-
   return (
     <nav
       style={{
@@ -64,7 +60,7 @@ const AcademyNavbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/academy" className="flex items-center gap-2 shrink-0">
+          <a href={ACADEMY} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 shrink-0">
             <span
               style={{
                 fontWeight: 800,
@@ -76,17 +72,19 @@ const AcademyNavbar = () => {
               PrivaLex{" "}
               <span style={{ color: GOLD }}>Academy</span>
             </span>
-          </Link>
+          </a>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
-            <Link
-              to="/academy"
+            <a
+              href={ACADEMY}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-3 py-2 text-xs font-semibold tracking-widest transition-colors hover:text-[#F4A623]"
-              style={{ color: location.pathname === "/academy" ? GOLD : NAVY }}
+              style={{ color: NAVY }}
             >
               HOME
-            </Link>
+            </a>
 
             {/* Programmes dropdown */}
             <div ref={dropdownRef} className="relative">
@@ -94,7 +92,7 @@ const AcademyNavbar = () => {
                 onClick={() => setProgrammesOpen((o) => !o)}
                 className="flex items-center gap-1 px-3 py-2 text-xs font-semibold tracking-widest transition-colors hover:text-[#F4A623]"
                 style={{
-                  color: location.pathname.includes("/academy/school") || location.pathname === "/academy/programmes" ? GOLD : NAVY,
+                  color: NAVY,
                   background: "none",
                   border: "none",
                   cursor: "pointer",
@@ -128,9 +126,11 @@ const AcademyNavbar = () => {
                 >
                   <div style={{ borderBottom: `3px solid ${GOLD}` }} />
                   {programmesLinks.map((link, i) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         display: "block",
                         padding: "10px 18px",
@@ -145,21 +145,23 @@ const AcademyNavbar = () => {
                       onMouseLeave={(e) => (e.currentTarget.style.background = "")}
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               )}
             </div>
 
             {navLinks.slice(1).map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-3 py-2 text-xs font-semibold tracking-widest transition-colors hover:text-[#F4A623]"
-                style={{ color: location.pathname === link.to ? GOLD : NAVY }}
+                style={{ color: NAVY }}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -232,13 +234,15 @@ const AcademyNavbar = () => {
               paddingBottom: "1rem",
             }}
           >
-            <Link
-              to="/academy"
+            <a
+              href={ACADEMY}
+              target="_blank"
+              rel="noopener noreferrer"
               className="block py-3 px-2 text-sm font-semibold"
-              style={{ color: NAVY }}
+              style={{ color: NAVY, textDecoration: "none" }}
             >
               HOME
-            </Link>
+            </a>
             <div>
               <button
                 onClick={() => setProgrammesOpen((o) => !o)}
@@ -250,27 +254,31 @@ const AcademyNavbar = () => {
               {programmesOpen && (
                 <div style={{ paddingLeft: "1rem" }}>
                   {programmesLinks.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="block py-2 text-sm"
-                      style={{ color: NAVY, opacity: 0.8 }}
+                      style={{ color: NAVY, opacity: 0.8, textDecoration: "none" }}
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               )}
             </div>
             {navLinks.slice(1).map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block py-3 px-2 text-sm font-semibold"
-                style={{ color: NAVY }}
+                style={{ color: NAVY, textDecoration: "none" }}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
             <div style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.5rem", padding: "0 0.5rem" }}>
               <a
@@ -367,20 +375,22 @@ const AcademyFooter = () => (
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
             {[
-              { label: "Home", to: "/academy" },
-              { label: "Programmes", to: "/academy/programmes" },
-              { label: "Masterclasses", to: "/academy/masterclasses" },
-              { label: "Corporate Training", to: "/academy/corporate-training" },
-              { label: "Accreditations", to: "/academy/accreditations" },
+              { label: "Home", href: ACADEMY },
+              { label: "Programmes", href: `${ACADEMY}/programmes` },
+              { label: "Masterclasses", href: `${ACADEMY}/masterclasses` },
+              { label: "Corporate Training", href: `${ACADEMY}/corporate-training` },
+              { label: "Accreditations", href: `${ACADEMY}/accreditations` },
             ].map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.85rem", textDecoration: "none" }}
                 className="hover:text-white transition-colors"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -399,7 +409,7 @@ const AcademyFooter = () => (
               training@privalexadvisory.com
             </a>
             <a
-              href="https://www.privalexacademy.com"
+              href={ACADEMY}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.85rem", textDecoration: "none" }}

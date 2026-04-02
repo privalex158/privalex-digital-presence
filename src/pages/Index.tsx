@@ -93,7 +93,8 @@ const serviceCards = [
     icon: GraduationCap,
     title: "PrivaLex Academy",
     desc: "Certified training programmes for DPOs, compliance officers, security professionals, risk managers, and lawyers delivered through PrivaLex Academy, our PECB-authorised and IIM-accredited training division. From the IIM CDPO for Nigerian regulatory compliance to ISO 42001 for AI governance, we train the professionals who run compliance programmes.",
-    href: "/services/academy",
+    href: "https://www.privalexacademy.com",
+    external: true,
   },
 ];
 
@@ -265,23 +266,42 @@ const Index = () => {
             and designed to produce results that withstand regulatory scrutiny.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            {serviceCards.map((card, i) => (
-              <Link
-                key={card.href}
-                to={card.href}
-                className="group bg-navy rounded-xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/5 hover:border-teal/30"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-teal/15 flex items-center justify-center mb-5 group-hover:bg-teal/25 transition-colors">
-                  <card.icon className="h-6 w-6 text-teal" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-3">{card.title}</h3>
-                <p className="text-white/60 mb-5 leading-relaxed text-sm">{card.desc}</p>
-                <span className="text-teal text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all duration-200">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            ))}
+            {serviceCards.map((card, i) => {
+              const cardClass = "group bg-navy rounded-xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/5 hover:border-teal/30";
+              const cardInner = (
+                <>
+                  <div className="w-12 h-12 rounded-lg bg-teal/15 flex items-center justify-center mb-5 group-hover:bg-teal/25 transition-colors">
+                    <card.icon className="h-6 w-6 text-teal" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">{card.title}</h3>
+                  <p className="text-white/60 mb-5 leading-relaxed text-sm">{card.desc}</p>
+                  <span className="text-teal text-sm font-medium inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all duration-200">
+                    Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </>
+              );
+              return card.external ? (
+                <a
+                  key={card.href}
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  {cardInner}
+                </a>
+              ) : (
+                <Link
+                  key={card.href}
+                  to={card.href}
+                  className={cardClass}
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  {cardInner}
+                </Link>
+              );
+            })}
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-12 justify-center">
             <Button variant="teal" size="lg" asChild>

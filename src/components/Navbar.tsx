@@ -155,7 +155,7 @@ const Navbar = () => {
 
         <div className="hidden lg:block">
           <Button variant="teal" size="default" asChild>
-            <Link to="/academy">PrivaLex Academy</Link>
+            <a href="https://www.privalexacademy.com" target="_blank" rel="noopener noreferrer">PrivaLex Academy</a>
           </Button>
         </div>
 
@@ -222,7 +222,7 @@ const Navbar = () => {
           )}
           <div className="pt-4 pb-2">
             <Button variant="teal" className="w-full" asChild>
-              <Link to="/academy">PrivaLex Academy</Link>
+              <a href="https://www.privalexacademy.com" target="_blank" rel="noopener noreferrer">PrivaLex Academy</a>
             </Button>
           </div>
         </div>

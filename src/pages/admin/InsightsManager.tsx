@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { PlusCircle, Trash2, Pencil, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import RichTextEditor from "@/components/RichTextEditor";
 import {
   getInsights, createInsight, updateInsight, deleteInsight,
   generateSlug, type Insight,
@@ -155,15 +155,11 @@ const InsightsManager = () => {
             </div>
             <div>
               <label className="text-sm font-medium text-foreground block mb-1">Details *</label>
-              <Textarea
-                name="body"
+              <RichTextEditor
                 value={form.body}
-                onChange={handleChange}
+                onChange={(html) => setForm((f) => ({ ...f, body: html }))}
                 placeholder="Write the full article content here..."
-                rows={12}
-                className="font-mono text-sm"
               />
-              <p className="text-xs text-muted-foreground mt-1">You can use HTML tags for formatting e.g. &lt;p&gt;, &lt;h2&gt;, &lt;strong&gt;, &lt;ul&gt;&lt;li&gt;</p>
             </div>
             <div className="flex gap-3">
               <Button type="submit" variant="teal" disabled={saving} className="flex items-center gap-2">
